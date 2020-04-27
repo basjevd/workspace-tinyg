@@ -1502,7 +1502,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                                 return;
                             }
 
-                            var gcode = "G91\nG0 ";
+                            var gcode = "G0 "; //G91\n
                             if (deltax !== 0) {
                                 gcode += "X" + (deltax * this.accelBaseval).toFixed(3) + " ";
                             }
