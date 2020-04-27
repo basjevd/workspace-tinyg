@@ -1489,6 +1489,38 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                     ["inline:com-chilipeppr-widget-xyz"],
             
                     function (xyz) {
+                        
+                        xyz.sendMove = function (touchid, prevpos, newpos) {
+
+                            console.log("sendMove");
+                            
+                            var deltax = newpos.x - prevpos.x;
+                            var deltay = newpos.y - prevpos.y;
+
+                            if (deltax === 0 && deltay === 0) {
+                                console.log("no move happened. returning.");
+                                return;
+                            }
+
+                            var gcode = "G91\nG0 ";
+                            if (deltax !== 0) {
+                                gcode += "X" + (deltax * this.accelBaseval).toFixed(3) + " ";
+                            }
+                            if (deltay !== 0) {
+                                gcode += "Y" + (deltay * this.accelBaseval * -1).toFixed(3) + " ";
+                            }
+                            gcode += "\nG90\n";
+                            //chilipeppr.publish("/com-chilipeppr-widget-serialport/send", gcode);          
+                            var jsonSend = {
+                                D: gcode,
+                                Id: "jog" + this.sendCtr
+                            };
+                            chilipeppr.publish("/com-chilipeppr-widget-serialport/jsonSend", jsonSend);
+                            this.sendCtr++;
+                            if (this.sendCtr > 999999) this.sendCtr = 0;
+
+                        };
+                        
                         xyz.init();
                     });
                 }
