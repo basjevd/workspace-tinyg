@@ -301,7 +301,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
             // This is a huge method that was built from the original jsfiddle workspace
             // we should technically put each widget in its own method for loading
-            //this.loadWidgets();
+            this.loadWidgets();
 
             // Create our workspace upper right corner triangle menu
             this.loadWorkspaceMenu();
@@ -450,6 +450,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             // the workspace can be referred to
             var wsObj = this;
             
+            /*
             // Load XBox Controller Widget
             chilipeppr.load(
               "#com-chilipeppr-ws-xbox",
@@ -656,29 +657,6 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             }();
             this.svg2gcodeObj.init();
             //End SVG2Gcode
-            
-            // Inject the Font2Gcode widget
-            /*
-            $('<div class="zhigh" id="com-chilipeppr-ws-font2gcode"></div>')
-                .insertAfter('#com-chilipeppr-ws-zipwhip-recvtext');
-
-            chilipeppr.load(
-              "#com-chilipeppr-ws-font2gcode",
-              "http://raw.githubusercontent.com/chilipeppr/widget-font2gcode/master/auto-generated-widget.html",
-              function() {
-                // Callback after widget loaded into #myDivComZipwhipWidgetFont2gcode
-                // Now use require.js to get reference to instantiated widget
-                cprequire(
-                  ["inline:com-zipwhip-widget-font2gcode"], // the id you gave your widget
-                  function(myObjComZipwhipWidgetFont2gcode) {
-                    // Callback that is passed reference to the newly loaded widget
-                    console.log("Widget / Font2Gcode just got loaded.", myObjComZipwhipWidgetFont2gcode);
-                    //myObjComZipwhipWidgetFont2gcode.init();
-                  }
-                );
-              }
-            );
-            */
 
             // Zipwhip texting
             // com-chilipeppr-ws-zipwhip
@@ -871,39 +849,6 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         });
                     });
                 }); //End JSCut
-                
-            
-            // Laser Solder
-            // com-chilipeppr-ws-jscut
-            /*
-            chilipeppr.load(
-                "#com-chilipeppr-ws-lasersolder",
-                "http://fiddle.jshell.net/chilipeppr/xuu785yz/show/light/",
-                function() {
-                    require(["inline:com-chilipeppr-widget-lasersolder"], function(ls) {
-                        ls.init();
-                        ls.unactivateWidget();
-                        // setup toggle button
-                        var alBtn = $('#com-chilipeppr-ws-menu .lasersolder-button');
-                        var alDiv = $('#com-chilipeppr-ws-lasersolder');
-                        alBtn.click(function() {
-                            if (alDiv.hasClass("hidden")) {
-                                // unhide
-                                alDiv.removeClass("hidden");
-                                alBtn.addClass("active");
-                                ls.activateWidget();
-                            }
-                            else {
-                                alDiv.addClass("hidden");
-                                alBtn.removeClass("active");
-                                ls.unactivateWidget();
-                            }
-                            $(window).trigger('resize');
-
-                        });
-                    });
-                }); //End Laser Solder
-                */
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
@@ -1626,6 +1571,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 );
               }
             );
+            */
 
             // WebRTC Client com-chilipeppr-webrtcclient
             /*
