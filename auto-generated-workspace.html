@@ -1475,6 +1475,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
 
             // XYZ
             // http://jsfiddle.net/chilipeppr/gh45j/
+            console.log("WORKSPACE: loading xyz widget");
             chilipeppr.load(
                 "com-chilipeppr-xyz",
                 // Lauer's new widget 8/16/15
@@ -1485,6 +1486,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 //"http://fiddle.jshell.net/chilipeppr/gh45j/show/light/",
         
                 function () {
+                    console.log("load xyz function");
                     cprequire(
                     ["inline:com-chilipeppr-widget-xyz"],
             
@@ -1502,7 +1504,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                                 return;
                             }
 
-                            var gcode = "G0 "; //G91\n
+                            var gcode = "G91\nG0 ";
                             if (deltax !== 0) {
                                 gcode += "X" + (deltax * this.accelBaseval).toFixed(3) + " ";
                             }
